@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AiChase : MonoBehaviour
+public class EnemyAiChase : MonoBehaviour
 {
 
     [SerializeField] private GameObject player;
@@ -12,8 +12,7 @@ public class AiChase : MonoBehaviour
 
     void Update()
     {
-        distance = Vector3.Distance(transform.position, player.transform.position);
-
+        
         Vector3 direction = player.transform.position - transform.position;
         direction.Normalize();
 
