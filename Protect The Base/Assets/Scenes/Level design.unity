@@ -6424,8 +6424,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whole_cannon: {fileID: 1767141923946791607}
   only_barrel: {fileID: 362425719}
-  rotation_speed: 50
-  move_speed: 50
+  rotation_speed: 100
+  move_speed: 10
   rb2d: {fileID: 1767141923946791608}
 --- !u!65 &427818334
 BoxCollider:
