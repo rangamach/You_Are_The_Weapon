@@ -6532,6 +6532,7 @@ MonoBehaviour:
   rotation_speed: 100
   move_speed: 10
   rb2d: {fileID: 1767141923946791608}
+  MouseLookAround: 0
 --- !u!65 &427818334
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6562,7 +6563,7 @@ Transform:
   m_GameObject: {fileID: 427818331}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.04, y: 1.425249, z: 24.45}
+  m_LocalPosition: {x: 5.04, y: 1.532, z: 24.45}
   m_LocalScale: {x: 0.030000012, y: 0.030000014, z: 0.030000018}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -26962,7 +26963,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1 &1767141923946791609
 GameObject:
@@ -27000,7 +27001,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 22.911917, y: 26.097834, z: 25.089058}
   m_Center: {x: -6.857327, y: -2.2999792, z: -0.14123908}
@@ -27723,7 +27724,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1150985037}
+      objectReference: {fileID: 1767141923946791607}
     - target: {fileID: 6836223104991378371, guid: d6299690efe0bf8438a598c56944ab73,
         type: 3}
       propertyPath: m_LocalPosition.x

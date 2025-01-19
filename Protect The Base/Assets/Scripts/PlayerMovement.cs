@@ -13,12 +13,16 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private Rigidbody rb2d;
 
-    private float mouse_movement;
+    private float mouse_movement_y;
+    private float mouse_movement_x;
     private Vector3 velocity;
+
+    [SerializeField] private bool MouseLookAround;
 
     private void Start()
     {
-        mouse_movement = Input.mousePosition.y;
+        mouse_movement_y = Input.mousePosition.y;
+        mouse_movement_x = Input.mousePosition.x;
     }
 
     void Update()
@@ -34,11 +38,21 @@ public class PlayerMovement : MonoBehaviour
 
     void Rotate()
     {
-        float user_input = Input.GetAxisRaw("Horizontal");
         float current_mouse_y = Input.mousePosition.y;
-        float mouse_check = current_mouse_y - mouse_movement;
-        whole_cannon.transform.Rotate(0, user_input * rotation_speed * Time.deltaTime, 0);
-        only_barrel.transform.Rotate(0, 0, -mouse_check * rotation_speed * Time.deltaTime);
+        float mouse_check_y = current_mouse_y - mouse_movement_y;
+        if (MouseLookAround)
+        {
+            float current_mouse_x = Input.mousePosition.x;
+            float mouse_check_x = current_mouse_x - mouse_movement_x;
+            whole_cannon.transform.Rotate(0, mouse_check_x * rotation_speed * Time.deltaTime, 0);
+            mouse_movement_x = current_mouse_x;
+        }
+        else
+        {
+            float user_input = Input.GetAxisRaw("Horizontal");
+            whole_cannon.transform.Rotate(0, user_input * rotation_speed * Time.deltaTime, 0);
+        }
+        only_barrel.transform.Rotate(0, 0, -mouse_check_y * rotation_speed * Time.deltaTime);
         Vector3 euler = only_barrel.transform.localRotation.eulerAngles;
         if (euler.z < 100 && euler.z > 25)
         {
@@ -50,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
             euler.z = 359;
             only_barrel.transform.localRotation = Quaternion.Euler(euler);
         }
-        mouse_movement = current_mouse_y;
+        mouse_movement_y = current_mouse_y;
     }
 
     void Move()
