@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody rb2d;
 
     private float mouse_movement;
+    private Vector3 velocity;
 
     private void Start()
     {
