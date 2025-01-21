@@ -5,7 +5,7 @@ using UnityEngine;
 public class AIEnemyShooting : MonoBehaviour
 {
 
-    [SerializeField]private GameObject bulletPrefab;
+    [SerializeField]private BulletHandler bulletPrefab;
     [SerializeField] private Transform gunTip;
     [SerializeField] private float bulletSpeed;
 
@@ -38,9 +38,9 @@ public class AIEnemyShooting : MonoBehaviour
 
             if (bulletPrefab != null)
             {
-                GameObject bullet = Instantiate(bulletPrefab, gunTip.position, gunTip.rotation);
+                BulletHandler bullet = Instantiate(bulletPrefab, gunTip.position, gunTip.rotation);
                 Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
-                bulletRb.AddForce(Vector3.forward *bulletSpeed, ForceMode.Impulse);
+                bulletRb.AddForce(gunTip.forward * bulletSpeed * Time.deltaTime, ForceMode.Impulse);
                 isShooting = false;
                 StartCoroutine(NextBullet(delayShoot));
             }
