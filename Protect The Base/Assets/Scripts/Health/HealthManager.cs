@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class EnemyHealthManager : MonoBehaviour
+public class HealthManager : MonoBehaviour
 {
     private const float Max_Health = 100f;
     public float health = Max_Health;
